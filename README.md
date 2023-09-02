@@ -1,16 +1,5 @@
 # top_courses
 
-A new Flutter project.
+Top Courses is a Flutter mobile application that provides users with a source of information about available courses at different institutions of different categories. 
+It can help different people, including students and graduates, access various educational courses.
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
