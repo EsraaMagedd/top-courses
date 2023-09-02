@@ -1,9 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:cupertino_icons/cupertino_icons.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'horizontal_tabs.dart';
+import 'package:top_courses/screens/popular_recommended.dart';
+import 'DesignCourses.dart';
+import 'ScienceCourses.dart';
 
-class Home extends StatelessWidget {
+int _selectedTabIndex = 0;
+
+class Home extends StatefulWidget {
+  @override
+  _Home createState() => _Home();
+}
+
+class _Home extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -87,7 +96,6 @@ class Home extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-
                     Padding(
                       padding: const EdgeInsets.all(2.0),
                       child: Text(
@@ -100,79 +108,54 @@ class Home extends StatelessWidget {
                         textAlign: TextAlign.start,
                       ),
                     ),
-                    SizedBox(height: 15,),
-                    HorizontalTabs(),
-
+                    SizedBox(
+                      height: 15,
+                    ),
+                    //HorizontalTabs(),
+                    Expanded(
+                      child: ListView.builder(
+                        shrinkWrap: true,
+                        scrollDirection: Axis.horizontal,
+                        itemCount: _tabs.length,
+                        itemBuilder: (ctx, index) {
+                          return GestureDetector(
+                            onTap: () {
+                              setState(() {
+                                _selectedTabIndex = index;
+                              });
+                            },
+                            child: Padding(
+                              padding: const EdgeInsets.symmetric(
+                                  vertical: 0, horizontal: 6),
+                              child: Container(
+                                alignment: Alignment.center,
+                                decoration: BoxDecoration(
+                                  border:
+                                      Border.all(color: Colors.blue.shade900),
+                                  borderRadius: BorderRadius.circular(15),
+                                  color: _selectedTabIndex == index
+                                      ? Colors.blue.shade900
+                                      : Colors.transparent,
+                                ),
+                                child: Text(
+                                  _tabs[index],
+                                  style: TextStyle(
+                                    color: _selectedTabIndex == index
+                                        ? Colors.white
+                                        : Colors.blue.shade900,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          );
+                        },
+                      ),
+                    ),
                   ],
                 ),
               ),
             ),
-            Expanded(
-              child: Column(
-                children: [
-                  SizedBox(height: 10,),
-                  // Popular Courses
-                  ListTile(
-                    leading: Text('Popular Courses',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 18),),
-                    trailing: ElevatedButton(
-                      style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.all(Colors.transparent),
-                        elevation: MaterialStateProperty.all(0),
-                      ),
-                      onPressed: () {
-                        // Do something when the button is pressed.
-                      },
-                      child: Text('View All',style: TextStyle(color: Colors.blue.shade900),),
-                    ),
-                  ),
-                  Expanded(child:
-                  ListView.builder(
-                    shrinkWrap: true,
-                    scrollDirection: Axis.horizontal,
-                    itemCount: popularCourses.length,
-                    itemBuilder: (context, index) {
-                      return Popular(
-                        photo: popularCourses[index].photo,
-                        title: popularCourses[index].title,
-                        views: popularCourses[index].views,
-                        hours: popularCourses[index].hours,
-                      );
-                    },
-                  ),
-                  ),
-
-                // Recommended Courses
-                  ListTile(
-                    leading: Text('Recommended Courses',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 18),),
-                    trailing: ElevatedButton(
-                      style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.all(Colors.transparent),
-                        elevation: MaterialStateProperty.all(0),
-                      ),
-                      onPressed: () {
-                        // Do something when the button is pressed.
-                      },
-                      child: Text('View All',style: TextStyle(color: Colors.blue.shade900),),
-                    ),
-                  ),
-                  Expanded(child:
-                  ListView.builder(
-                    shrinkWrap: true,
-                    scrollDirection: Axis.horizontal,
-                    itemCount: RecommendedCourses.length,
-                    itemBuilder: (context, index) {
-                      return Recommended(
-                        photo: RecommendedCourses[index].photo,
-                        title: RecommendedCourses[index].title,
-                        views: RecommendedCourses[index].views,
-                        hours: RecommendedCourses[index].hours,
-                      );
-                    },
-                  ),
-                  ),
-                ],
-            ),
-            ),
+            displaySelectedWidget(_selectedTabIndex),
           ],
         ),
         bottomNavigationBar: BottomNavigationBar(
@@ -197,6 +180,19 @@ class Home extends StatelessWidget {
         ),
       ),
     );
+  }
+}
+
+Widget displaySelectedWidget(int index) {
+  switch (index) {
+    case 0:
+      return PopularRecommended();
+    case 1:
+      return Science();
+    case 2:
+      return Design();
+    default:
+      return Design(); // Alternatively, return a default widget if index is out of range.
   }
 }
 
@@ -227,29 +223,46 @@ class Popular extends StatelessWidget {
             height: 100, // Adjust the height to your preference
             child: ClipRRect(
               borderRadius: BorderRadius.circular(10),
-              child: Image.asset(photo, // Replace with your image URL
+              child: Image.asset(
+                photo, // Replace with your image URL
               ),
             ),
           ),
+
           Padding(
-            padding: const EdgeInsets.only(left:0,right: 8,top:8,bottom: 8),
+            padding:
+                const EdgeInsets.only(left: 0, right: 8, top: 8, bottom: 8),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(title),
                 Row(
                   children: [
-                    Icon(Icons.remove_red_eye,size: 12,color: Colors.blue,),
-                    Text(views,style: TextStyle(fontSize: 12),),
-                    SizedBox(width: 20,),
-                    Icon(Icons.watch_later,size: 15,),
-                    Text('${hours} h',style: TextStyle(fontSize: 12),),
+                    Icon(
+                      Icons.remove_red_eye,
+                      size: 12,
+                      color: Colors.blue,
+                    ),
+                    Text(
+                      views,
+                      style: TextStyle(fontSize: 12),
+                    ),
+                    SizedBox(
+                      width: 20,
+                    ),
+                    Icon(
+                      Icons.watch_later,
+                      size: 15,
+                    ),
+                    Text(
+                      '${hours} h',
+                      style: TextStyle(fontSize: 12),
+                    ),
                   ],
                 ),
               ],
             ),
           ),
-
         ],
       ),
     );
@@ -276,65 +289,77 @@ class Recommended extends StatelessWidget {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(10.0),
       ),
-        child: Column(
-          children: [
-           Container(
-          width: 150, // Adjust the width to your preference
-          height: 100, // Adjust the height to your preference
+      child: Column(
+        children: [
+          Container(
+            width: 150, // Adjust the width to your preference
+            height: 100, // Adjust the height to your preference
             child: ClipRRect(
               borderRadius: BorderRadius.circular(10),
-              child: Image.asset(photo, // Replace with your image URL
-              ),
-          ),
-        ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Expanded(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                 children: [
-                   Text(title),
-                   Row(
-                     children: [
-                       Icon(Icons.remove_red_eye,size: 12,color: Colors.blue,),
-                       Text(views,style: TextStyle(fontSize: 12),),
-                       SizedBox(width: 20,),
-                       Icon(Icons.watch_later,size: 15,),
-                       Text('${hours} h',style: TextStyle(fontSize: 12),),
-                     ],
-                   ),
-                 ],
-                ),
+              child: Image.asset(
+                photo, // Replace with your image URL
               ),
             ),
+          ),
 
-          ],
-        ),
-
-
-
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Expanded(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(title),
+                  Row(
+                    children: [
+                      Icon(
+                        Icons.remove_red_eye,
+                        size: 12,
+                        color: Colors.blue,
+                      ),
+                      Text(
+                        views,
+                        style: TextStyle(fontSize: 12),
+                      ),
+                      SizedBox(
+                        width: 20,
+                      ),
+                      Icon(
+                        Icons.watch_later,
+                        size: 15,
+                      ),
+                      Text(
+                        '${hours} h',
+                        style: TextStyle(fontSize: 12),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
 
-int _selectedTabIndex = 0;
-List<String> _tabs = ['All', 'Science', 'Design', 'Marketing', 'Languages'];
+List<String> _tabs = [' All ', ' Science ', ' Design ', ' Marketing ', ' Languages ',' Technologies '];
 
 List<Popular> popularCourses = [
-  Popular(
+  const Popular(
     photo: 'assets/machine.webp',
     title: 'Machine Learning',
     views: '100k',
     hours: 40,
   ),
-  Popular(
+  const Popular(
     photo: 'assets/marketing.png',
     title: 'Marketing',
     views: '50k',
     hours: 30,
   ),
-  Popular(
+  const Popular(
     photo: 'assets/math.jpg',
     title: 'Mathematics',
     views: '20k',
@@ -342,19 +367,19 @@ List<Popular> popularCourses = [
   ),
 ];
 List<Recommended> RecommendedCourses = [
-  Recommended(
+  const Recommended(
     photo: 'assets/math.jpg',
     title: 'Mathematics',
     views: '100k',
     hours: 40,
   ),
-  Recommended(
+  const Recommended(
     photo: 'assets/machine.webp',
     title: 'Machine Learning',
     views: '50k',
     hours: 30,
   ),
-  Recommended(
+  const Recommended(
     photo: 'assets/marketing.png',
     title: 'Marketing',
     views: '20k',

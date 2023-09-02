@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:top_courses/screens/Category.dart';
 import 'package:top_courses/screens/splash.dart';
 import 'package:top_courses/screens/home.dart';
 
-Future main() async {
-  runApp(const MyApp());
+void main()  {
+  runApp( MyApp());
 }
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
