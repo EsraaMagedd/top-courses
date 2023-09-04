@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:top_courses/screens/LogIn.dart';
+import 'package:top_courses/screens/log_in.dart';
 
 import 'home.dart';
 
@@ -122,9 +122,11 @@ class SignUp extends StatelessWidget {
                           child: Container(
                             width: double.infinity,
                             decoration: BoxDecoration(
-                                color: Colors.blue,
+                                color: Colors.blue.shade900,
                                 borderRadius: BorderRadius.circular(50.0)),
+
                             child: MaterialButton(
+
                                 child: Text('Sign Up',
                                     style: TextStyle(
                                         fontSize: 20.0, color: Colors.white)),

@@ -2,52 +2,29 @@ import 'package:flutter/material.dart';
 
 import 'home.dart';
 
-class CategoryCourses extends StatefulWidget {
 
-  @override
-  _CategoryCourses createState() => _CategoryCourses();
-}
-
-class _CategoryCourses extends State<CategoryCourses> {
+class AllCategoryCourses extends StatelessWidget {
+  int selected_index=0;
+  AllCategoryCourses(selected_index){
+  this.selected_index=selected_index;
+  }
   @override
   Widget build(BuildContext context) {
     return Expanded(
       child: Column(
         children: [
-          SizedBox(height: 10,),
-          // Popular Courses
-          ListTile(
-            leading: Text('All '+AllCourses[1][0].title+' Courses',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 18),),
-            trailing: ElevatedButton(
-              style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.all(Colors.transparent),
-                elevation: MaterialStateProperty.all(0),
-              ),
-              onPressed: () {
-                // Do something when the button is pressed.
-              },
-              child: Text('Filter',style: TextStyle(color: Colors.blue.shade900),),
-              // Row(
-              //   children: [
-              //     Icon(Icons.filter_list,color: Colors.blue.shade900,),
-              //     Text('Filter',style: TextStyle(color: Colors.blue.shade900),),
-              //
-              //   ],
-              // ),
-            ),
-          ),
           Expanded(child:
           ListView.builder(
             shrinkWrap: true,
             scrollDirection: Axis.vertical,
-            itemCount: popularCourses.length,
+            itemCount: 8,
             itemBuilder: (context, index) {
               return Courses(
-                Category: AllCourses[1][index].Category,
-                photo: AllCourses[1][index].photo,
-                title: AllCourses[1][index].title,
-                views: AllCourses[1][index].views,
-                hours: AllCourses[1][index].hours,
+                Category: AllCourses[selected_index][index].Category,
+                photo: AllCourses[selected_index][index].photo,
+                title: AllCourses[selected_index][index].title,
+                views: AllCourses[selected_index][index].views,
+                hours: AllCourses[selected_index][index].hours,
               );
             },
           ),
@@ -57,6 +34,7 @@ class _CategoryCourses extends State<CategoryCourses> {
     );
   }
 }
+
 class Courses extends StatelessWidget {
   final String Category;
   final String photo;
@@ -75,7 +53,7 @@ class Courses extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      elevation: 2.0,
+      elevation: 3.0,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(10.0),
       ),
@@ -93,13 +71,13 @@ class Courses extends StatelessWidget {
               ),
             ),
           ),
-          SizedBox(width: 40,),
+          SizedBox(width: 30,),
           Padding(
             padding: const EdgeInsets.only(left: 0, right: 8, top: 8, bottom: 8),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(width: 20,),
+                SizedBox(width: 10,),
                 Text(title),
                 SizedBox(height: 15,),
                 Row(
@@ -130,8 +108,9 @@ class Courses extends StatelessWidget {
               ],
             ),
           ),
-          SizedBox(width: 50,),
+          Spacer(),
            Icon(Icons.bookmark_outline),
+          SizedBox(width: 30,),
 
 
         ],
@@ -141,9 +120,22 @@ class Courses extends StatelessWidget {
 }
 
 List<List<Courses>> AllCourses = [
-
   //tech
   [
+    const Courses(
+      Category: 'Technology',
+      photo: 'assets/tech/cloud.jpg',
+      title: 'Cloud Computing',
+      views: '80.5k',
+      hours: 45,
+    ),
+    const Courses(
+      Category: 'Technology',
+      photo: 'assets/tech/cybersecurity.avif',
+      title: 'Cyber Security',
+      views: '80.5k',
+      hours: 45,
+    ),
     const Courses(
       Category: 'Technology',
       photo: 'assets/tech/DataScience.avif',
@@ -167,6 +159,13 @@ List<List<Courses>> AllCourses = [
     ),
     const Courses(
       Category: 'Technology',
+      photo: 'assets/tech/robotics.avif',
+      title: 'Robotics',
+      views: '80.5k',
+      hours: 45,
+    ),
+    const Courses(
+      Category: 'Technology',
       photo: 'assets/tech/web.avif',
       title: 'Web Design',
       views: '100k',
@@ -184,6 +183,13 @@ List<List<Courses>> AllCourses = [
   [
     const Courses(
       Category: 'Science',
+      photo: 'assets/science/astronomy.jpg',
+      title: 'Astronomy',
+      views: '250k',
+      hours: 70,
+    ),
+    const Courses(
+      Category: 'Science',
       photo: 'assets/science/biology.jpg',
       title: 'Biology',
       views: '56.2k',
@@ -195,6 +201,13 @@ List<List<Courses>> AllCourses = [
       title: 'Chemistry',
       views: '50.5k',
       hours: 34,
+    ),
+    const Courses(
+      Category: 'Science',
+      photo: 'assets/science/psychology.avif',
+      title: 'Psychology',
+      views: '50k',
+      hours: 10,
     ),
     const Courses(
       Category: 'Science',
@@ -212,6 +225,13 @@ List<List<Courses>> AllCourses = [
     ),
     const Courses(
       Category: 'Science',
+      photo: 'assets/science/ecology.webp',
+      title: 'Ecology',
+      views: '40k',
+      hours: 40,
+    ),
+    const Courses(
+      Category: 'Science',
       photo: 'assets/science/math.jpg',
       title: 'Mathematics',
       views: '68k',
@@ -220,6 +240,27 @@ List<List<Courses>> AllCourses = [
   ],
   //languages
   [
+    const Courses(
+      Category: 'Language',
+      photo: 'assets/language/korean.jpg',
+      title: 'Korean',
+      views: '52k',
+      hours: 44,
+    ),
+    const Courses(
+      Category: 'Language',
+      photo: 'assets/language/russian.jpg',
+      title: 'Russian',
+      views: '15k',
+      hours: 10,
+    ),
+    const Courses(
+      Category: 'Language',
+      photo: 'assets/language/chinese.jpg',
+      title: 'Chinese',
+      views: '15k',
+      hours: 10,
+    ),
     const Courses(
       Category: 'Language',
       photo: 'assets/language/english.jpg',
@@ -258,13 +299,7 @@ List<List<Courses>> AllCourses = [
   ],
   //marketing
   [
-    const Courses(
-      Category: 'Marketing',
-      photo: 'assets/marketing/analytics.png',
-      title: 'Marketing analytics',
-      views: '18k',
-      hours: 10,
-    ),
+
     const Courses(
       Category: 'Marketing',
       photo: 'assets/marketing/automation.jpg',
@@ -291,6 +326,34 @@ List<List<Courses>> AllCourses = [
       photo: 'assets/marketing/social.jpg',
       title: 'Social Marketing',
       views: '59k',
+      hours: 10,
+    ),
+    const Courses(
+      Category: 'Marketing',
+      photo: 'assets/marketing/outbound.jpg',
+      title: 'Outbound Marketing',
+      views: '18k',
+      hours: 10,
+    ),
+    const Courses(
+      Category: 'Marketing',
+      photo: 'assets/marketing/inbound.jpg',
+      title: 'Inbound Marketing',
+      views: '20k',
+      hours: 10,
+    ),
+    const Courses(
+      Category: 'Marketing',
+      photo: 'assets/marketing/brand.avif',
+      title: 'Brand Marketing',
+      views: '18k',
+      hours: 10,
+    ),
+    const Courses(
+      Category: 'Marketing',
+      photo: 'assets/marketing/analytics.png',
+      title: 'Marketing analytics',
+      views: '18k',
       hours: 10,
     ),
 

@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import 'SignUp.dart';
+import 'sign_up.dart';
 import 'home.dart';
 
 class Login extends StatelessWidget {
@@ -84,7 +84,7 @@ class Login extends StatelessWidget {
                           child: Container(
                             width: double.infinity,
                             decoration: BoxDecoration(
-                                color: Colors.blue,
+                                color: Colors.blue.shade900,
                                 borderRadius: BorderRadius.circular(50.0)),
                             child: MaterialButton(
                                 child: Text(

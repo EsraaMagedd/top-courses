@@ -2,15 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:cupertino_icons/cupertino_icons.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:top_courses/screens/popular_recommended.dart';
-import 'CategoryCourses.dart';
-import 'science_courses.dart';
+import 'all_category_courses.dart';
+import 'category_courses.dart';
 
 
-class Category extends StatefulWidget {
-  @override
-  _Category createState() => _Category();
-}
-class _Category extends State<Category> {
+class AllCategory extends StatelessWidget {
+  int selected_index=0;
+  AllCategory(selected_index){
+    this.selected_index=selected_index;
+  }
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -39,7 +39,7 @@ class _Category extends State<Category> {
                   ),
                   child: TextField(
                     decoration: InputDecoration(
-                      hintText: 'Design',
+                      hintText: '${AllCourses[selected_index][0].Category} Courses',
                       prefixIcon: Icon(Icons.search),
                     ),
                   ),
@@ -49,12 +49,33 @@ class _Category extends State<Category> {
                 SizedBox(width: 10,),
               ],
             ),
-
           ],
         ),
         body:Column(
           children: [
-            CategoryCourses(),
+            SizedBox(height: 10,),
+            // Popular Courses
+            ListTile(
+              leading: Text('All ${AllCourses[selected_index][0].Category} Courses',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 18),),
+              trailing: ElevatedButton(
+                style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all(Colors.transparent),
+                  elevation: MaterialStateProperty.all(0),
+                ),
+                onPressed: () {
+                  // Do something when the button is pressed.
+                },
+                child: Text('Filter',style: TextStyle(color: Colors.blue.shade900),),
+                // Row(
+                //   children: [
+                //     Icon(Icons.filter_list,color: Colors.blue.shade900,),
+                //     Text('Filter',style: TextStyle(color: Colors.blue.shade900),),
+                //
+                //   ],
+                // ),
+              ),
+            ),
+            AllCategoryCourses(selected_index),
           ],
         ),
         bottomNavigationBar: BottomNavigationBar(
@@ -81,5 +102,4 @@ class _Category extends State<Category> {
     );
   }
 }
-
 

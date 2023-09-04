@@ -3,7 +3,8 @@ import 'package:cupertino_icons/cupertino_icons.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:top_courses/screens/popular_recommended.dart';
 
-import 'science_courses.dart';
+import 'all_category_courses.dart';
+import 'category_courses.dart';
 
 int _selectedTabIndex = 0;
 
@@ -189,11 +190,15 @@ Widget displaySelectedWidget(int index) {
     case 0:
       return PopularRecommended();
     case 1:
-      return Science();
+      return CategoryCourses(0);
     case 2:
-      return Science();
+      return CategoryCourses(1);
+    case 3:
+      return CategoryCourses(2);
+    case 4:
+      return CategoryCourses(3);
     default:
-      return Science(); // Alternatively, return a default widget if index is out of range.
+      return CategoryCourses(0); // Alternatively, return a default widget if index is out of range.
   }
 }
 

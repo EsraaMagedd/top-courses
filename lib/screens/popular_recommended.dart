@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:top_courses/screens/category_screen.dart';
-
+import 'package:top_courses/screens/all_category_screen.dart';
 import 'home.dart';
 
 class PopularRecommended extends StatefulWidget {
@@ -18,29 +17,6 @@ class _PopularRecommendedsState extends State<PopularRecommended> {
           // Popular Courses
           ListTile(
             leading: Text('Popular Courses',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 18),),
-            trailing: ElevatedButton(
-              style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.all(Colors.transparent),
-                elevation: MaterialStateProperty.all(0),
-              ),
-              onPressed: () {
-                // Do something when the button is pressed.
-              },
-              child:
-              TextButton(
-                child: Text('View All',style: TextStyle(color: Colors.blue.shade900),),
-                onPressed: () {
-                  Navigator.push(
-                                context,
-                                MaterialPageRoute(builder: (context) => Category()),
-                              );
-                },
-              ),
-
-
-
-
-            ),
           ),
           Expanded(child:
           ListView.builder(
@@ -61,16 +37,7 @@ class _PopularRecommendedsState extends State<PopularRecommended> {
           // Recommended Courses
           ListTile(
             leading: Text('Recommended Courses',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 18),),
-            trailing: ElevatedButton(
-              style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.all(Colors.transparent),
-                elevation: MaterialStateProperty.all(0),
-              ),
-              onPressed: () {
-                // Do something when the button is pressed.
-              },
-              child: Text('View All',style: TextStyle(color: Colors.blue.shade900),),
-            ),
+
           ),
           Expanded(child:
           ListView.builder(

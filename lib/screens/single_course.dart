@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-import 'science_courses.dart';
+import 'category_courses.dart';
 import 'home.dart';
 
 import 'package:cupertino_icons/cupertino_icons.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:top_courses/screens/popular_recommended.dart';
-import 'CategoryCourses.dart';
-import 'science_courses.dart';
+import 'all_category_courses.dart';
+import 'category_courses.dart';
 
 class SingleCourse extends StatefulWidget {
   @override

@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import 'LogIn.dart';
-import 'SignUp.dart';
+import 'log_in.dart';
+import 'sign_up.dart';
 
 class Start extends StatelessWidget {
   @override
