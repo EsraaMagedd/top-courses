@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:top_courses/screens/Category.dart';
+import 'package:top_courses/screens/category_screen.dart';
+import 'package:top_courses/screens/single_course.dart';
 import 'package:top_courses/screens/splash.dart';
 import 'package:top_courses/screens/home.dart';
+import 'package:top_courses/screens/splash_screen.dart';
 
 void main()  {
   runApp( MyApp());
@@ -12,7 +14,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Top Courses',
-      home: Home(),
+      home: SplashScreen(),
       debugShowCheckedModeBanner: false,
     );
   }

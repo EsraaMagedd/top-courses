@@ -3,7 +3,7 @@ import 'package:cupertino_icons/cupertino_icons.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:top_courses/screens/popular_recommended.dart';
 import 'DesignCourses.dart';
-import 'ScienceCourses.dart';
+import 'science_courses.dart';
 
 int _selectedTabIndex = 0;
 
@@ -54,11 +54,11 @@ class _Home extends State<Home> {
                     padding: EdgeInsets.all(20),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
                           "Find a course you \n"
-                          "    want to learn",
+                          "want to learn",
                           style: TextStyle(
                               fontWeight: FontWeight.bold,
                               fontSize: 30,
@@ -182,6 +182,7 @@ class _Home extends State<Home> {
     );
   }
 }
+
 
 Widget displaySelectedWidget(int index) {
   switch (index) {
@@ -344,45 +345,61 @@ class Recommended extends StatelessWidget {
   }
 }
 
-List<String> _tabs = [' All ', ' Science ', ' Design ', ' Marketing ', ' Languages ',' Technologies '];
+List<String> _tabs = [' All ', ' Technologies ',' Science ',  ' Languages ', ' Marketing ',];
 
 List<Popular> popularCourses = [
   const Popular(
-    photo: 'assets/machine.webp',
-    title: 'Machine Learning',
+    photo: 'assets/tech/cs50.jpg',
+    title: 'CS50',
     views: '100k',
     hours: 40,
   ),
   const Popular(
-    photo: 'assets/marketing.png',
+    photo: 'assets/marketing/marketing.png',
     title: 'Marketing',
     views: '50k',
     hours: 30,
   ),
   const Popular(
-    photo: 'assets/math.jpg',
-    title: 'Mathematics',
+    photo: 'assets/tech/flutter.webp',
+    title: 'Flutter',
+    views: '20k',
+    hours: 20,
+  ),
+  const Popular(
+    photo: 'assets/tech/ccna.png',
+    title: 'CCNA',
     views: '20k',
     hours: 20,
   ),
 ];
 List<Recommended> RecommendedCourses = [
+
   const Recommended(
-    photo: 'assets/math.jpg',
-    title: 'Mathematics',
+    photo: 'assets/language/english.jpg',
+    title: 'English',
     views: '100k',
     hours: 40,
   ),
   const Recommended(
-    photo: 'assets/machine.webp',
-    title: 'Machine Learning',
+    photo: 'assets/science/physics.jpg',
+    title: 'Physics',
     views: '50k',
     hours: 30,
   ),
   const Recommended(
-    photo: 'assets/marketing.png',
-    title: 'Marketing',
+    photo: 'assets/marketing/social.jpg',
+    title: 'Social Media Marketing',
     views: '20k',
     hours: 20,
   ),
+  const Recommended(
+    photo: 'assets/language/german.jpg',
+    title: 'German',
+    views: '100k',
+    hours: 40,
+  ),
 ];
+
+
+

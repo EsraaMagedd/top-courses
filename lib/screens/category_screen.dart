@@ -4,9 +4,8 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:top_courses/screens/popular_recommended.dart';
 import 'CategoryCourses.dart';
 import 'DesignCourses.dart';
-import 'ScienceCourses.dart';
+import 'science_courses.dart';
 
-int _selectedTabIndex = 0;
 
 class Category extends StatefulWidget {
   @override

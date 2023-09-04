@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:top_courses/screens/Category.dart';
+import 'package:top_courses/screens/category_screen.dart';
 
 import 'home.dart';
 

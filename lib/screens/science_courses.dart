@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'CategoryCourses.dart';
 import 'home.dart';
 
 class Science extends StatefulWidget {
@@ -32,13 +33,13 @@ class _ScienceState extends State<Science> {
           ListView.builder(
             shrinkWrap: true,
             scrollDirection: Axis.vertical,
-            itemCount: popularCourses.length,
+            itemCount: AllCourses[1].length,
             itemBuilder: (context, index) {
               return ScienceCard(
-                photo: popularCourses[index].photo,
-                title: popularCourses[index].title,
-                views: popularCourses[index].views,
-                hours: popularCourses[index].hours,
+                photo: AllCourses[1][index].photo,
+                title: AllCourses[1][index].title,
+                views: AllCourses[1][index].views,
+                hours: AllCourses[1][index].hours,
               );
             },
           ),
@@ -128,3 +129,4 @@ class ScienceCard extends StatelessWidget {
     );
   }
 }
+
