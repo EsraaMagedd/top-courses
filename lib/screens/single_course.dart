@@ -7,7 +7,6 @@ import 'package:cupertino_icons/cupertino_icons.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:top_courses/screens/popular_recommended.dart';
 import 'CategoryCourses.dart';
-import 'DesignCourses.dart';
 import 'science_courses.dart';
 
 class SingleCourse extends StatefulWidget {
@@ -31,21 +30,20 @@ class _SingleCourse extends State<SingleCourse> {
               Navigator.of(context).pop();
             },
           ),
-          title:
-            Text(
-              'Marketing Automation Course',
-              style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white),
-            ),
+          title: const Text(
+            'Marketing Automation Course',
+            style: TextStyle(
+                fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white),
+          ),
         ),
         body: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Image.asset('assets/marketing/automation.jpg'),
-            SizedBox(height: 10,),
+            const SizedBox(
+              height: 10,
+            ),
             Row(
               children: [
                 RatingBar.builder(
@@ -58,7 +56,6 @@ class _SingleCourse extends State<SingleCourse> {
                   itemBuilder: (context, _) => Icon(
                     Icons.star,
                     color: Colors.amber,
-
                   ),
                   onRatingUpdate: (rating) {
                     print(rating);
@@ -73,10 +70,11 @@ class _SingleCourse extends State<SingleCourse> {
                 ),
               ],
             ),
-            SizedBox(height: 10,),
+            SizedBox(
+              height: 10,
+            ),
             Row(
               children: [
-
                 SizedBox(
                   width: 10,
                 ),
@@ -88,7 +86,6 @@ class _SingleCourse extends State<SingleCourse> {
                   width: 5,
                 ),
                 Text('15k Views'),
-
                 SizedBox(
                   width: 5,
                 ),
@@ -109,7 +106,6 @@ class _SingleCourse extends State<SingleCourse> {
                   backgroundImage: AssetImage('assets/logo.png'),
                 ),
                 Text('Esraa Maged'),
-
               ],
             ),
             Text('Course Description'),
@@ -145,7 +141,6 @@ class _SingleCourse extends State<SingleCourse> {
                 Spacer(),
               ],
             ),
-
           ],
         ),
         bottomNavigationBar: BottomNavigationBar(

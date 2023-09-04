@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:cupertino_icons/cupertino_icons.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:top_courses/screens/popular_recommended.dart';
-import 'DesignCourses.dart';
+
 import 'science_courses.dart';
 
 int _selectedTabIndex = 0;
@@ -191,9 +191,9 @@ Widget displaySelectedWidget(int index) {
     case 1:
       return Science();
     case 2:
-      return Design();
+      return Science();
     default:
-      return Design(); // Alternatively, return a default widget if index is out of range.
+      return Science(); // Alternatively, return a default widget if index is out of range.
   }
 }
 

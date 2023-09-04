@@ -3,7 +3,6 @@ import 'package:cupertino_icons/cupertino_icons.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:top_courses/screens/popular_recommended.dart';
 import 'CategoryCourses.dart';
-import 'DesignCourses.dart';
 import 'science_courses.dart';
 
 
