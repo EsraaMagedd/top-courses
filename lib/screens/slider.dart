@@ -4,6 +4,8 @@ import 'package:liquid_swipe/liquid_swipe.dart';
 import 'package:lottie/lottie.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
+import 'Start.dart';
+
 class slider extends StatefulWidget {
   const slider({Key? key}) : super(key: key);
 
@@ -155,7 +157,7 @@ class _sliderState extends State<slider> {
             InkWell(
               onTap: () {
                 Navigator.push(context,
-                    MaterialPageRoute<void>(builder: (context) => dashboard()));
+                    MaterialPageRoute<void>(builder: (context) => Start()));
               },
               child: Container(
                 alignment: Alignment.center,

@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import 'home.dart';
+
 class SignUp extends StatelessWidget{
   final _formkey = GlobalKey<FormState>();
   @override
@@ -82,8 +84,8 @@ class SignUp extends StatelessWidget{
                       child: Text('Sign Up',style: TextStyle(fontSize: 20.0,color: Colors.white)),
                       onPressed: (){
                         if(_formkey.currentState!.validate()){
-                          Navigator.push(context, MaterialPageRoute(builder:(context) => Detect(),));
-                        };
+                          Navigator.push(context, MaterialPageRoute(builder:(context) => Home(),));
+                        }
                       }
                   ),
                 ),
