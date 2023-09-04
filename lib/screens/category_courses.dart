@@ -49,6 +49,8 @@ class CategoryCourses extends StatelessWidget {
             itemCount: AllCourses.length,
             itemBuilder: (context, index) {
               return Courses(
+                index: index,
+                selected_index: 1,
                 Category: AllCourses[1][index].Category,
                 photo: AllCourses[selected_index][index].photo,
                 title: AllCourses[selected_index][index].title,
@@ -68,81 +70,3 @@ class CategoryCourses extends StatelessWidget {
 
 
 }
-// class ScienceCard extends StatelessWidget {
-//   final String photo;
-//   final String title;
-//   final String views;
-//   final int hours;
-//
-//   const ScienceCard({
-//     required this.photo,
-//     required this.title,
-//     required this.views,
-//     required this.hours,
-//   });
-//
-//   @override
-//   Widget build(BuildContext context) {
-//     return Card(
-//       elevation: 2.0,
-//       shape: RoundedRectangleBorder(
-//         borderRadius: BorderRadius.circular(10.0),
-//       ),
-//       child: Row(
-//         mainAxisAlignment: MainAxisAlignment.center,
-//         crossAxisAlignment: CrossAxisAlignment.center,
-//         children: [
-//           Container(
-//             width: 150, // Adjust the width to your preference
-//             height: 100, // Adjust the height to your preference
-//             child: ClipRRect(
-//               borderRadius: BorderRadius.circular(10),
-//               child: Image.asset(
-//                 photo, // Replace with your image URL
-//               ),
-//             ),
-//           ),
-//
-//           SizedBox(width: 80,),
-//           Padding(
-//             padding: const EdgeInsets.only(left: 0, right: 8, top: 8, bottom: 8),
-//             child: Column(
-//               crossAxisAlignment: CrossAxisAlignment.start,
-//               children: [
-//                 SizedBox(width: 20,),
-//                 Text(title),
-//                 SizedBox(height: 15,),
-//                 Row(
-//                   children: [
-//                     Icon(
-//                       Icons.remove_red_eye,
-//                       size: 12,
-//                       color: Colors.blue,
-//                     ),
-//
-//                     Text(
-//                       views,
-//                       style: TextStyle(fontSize: 12),
-//                     ),
-//                     SizedBox(
-//                       width: 20,
-//                     ),
-//                     Icon(
-//                       Icons.watch_later,
-//                       size: 15,
-//                     ),
-//                     Text(
-//                       '${hours} h',
-//                       style: TextStyle(fontSize: 12),
-//                     ),
-//                   ],
-//                 ),
-//               ],
-//             ),
-//           ),
-//         ],
-//       ),
-//     );
-//   }
-// }
-
