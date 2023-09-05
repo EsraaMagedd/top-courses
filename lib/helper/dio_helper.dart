@@ -1,19 +1,18 @@
-
 import 'package:dio/dio.dart';
 
-class DioHelper{
+class DioHelper {
   static Dio? dio;
-  static String token='';
-  static Map<String,dynamic> headers={
+  static String token = '';
+  static Map<String, dynamic> headers = {
     "Accept": "application/json",
     "Content-Type": "application/json",
-    if (token.isNotEmpty)'Authorization':token,
+    if (token.isNotEmpty) 'Authorization': token,
   };
 
-  static init(){
-    dio= Dio(BaseOptions(
+  static init() {
+    dio = Dio(BaseOptions(
       baseUrl: '',
-          connectTimeout: Duration(seconds: 60),
+      connectTimeout: Duration(seconds: 60),
       receiveTimeout: Duration(seconds: 60),
       receiveDataWhenStatusError: true,
       responseType: ResponseType.json,
@@ -21,24 +20,20 @@ class DioHelper{
     ));
   }
 
-
   Future getData({
-  required String path,
-     Map<String,dynamic>? body,
-})async{
-    final response= dio!.get(path,data: body);
+    required String path,
+    Map<String, dynamic>? body,
+  }) async {
+    final response = dio!.get(path, data: body);
     return response;
   }
 
   Future postData({
     required String path,
-     Map<String,dynamic>? body,
-    Map<String,dynamic>? queryParams,
-  })async{
-    final response= dio!.get(path,data: body, queryParameters: queryParams);
+    Map<String, dynamic>? body,
+    Map<String, dynamic>? queryParams,
+  }) async {
+    final response = dio!.get(path, data: body, queryParameters: queryParams);
     return response;
   }
-
-
-
 }
