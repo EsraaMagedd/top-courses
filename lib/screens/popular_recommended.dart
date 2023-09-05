@@ -10,15 +10,12 @@ int _selectedTabIndex = 0;
 class _PopularRecommendedsState extends State<PopularRecommended> {
   @override
   Widget build(BuildContext context) {
-    return Expanded(
+    return  Expanded(
       child: Column(
         children: [
           SizedBox(height: 10,),
           // Popular Courses
-          ListTile(
-            leading: Text('Popular Courses',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 18),),
-          ),
-          Expanded(child:
+          Flexible(child:
           ListView.builder(
             shrinkWrap: true,
             scrollDirection: Axis.horizontal,
@@ -33,12 +30,15 @@ class _PopularRecommendedsState extends State<PopularRecommended> {
             },
           ),
           ),
+          ListTile(
+            leading: Text('Popular Courses',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 18),),
+          ),
           // Recommended Courses
           ListTile(
             leading: Text('Recommended Courses',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 18),),
 
           ),
-          Expanded(child:
+          Flexible(child:
           ListView.builder(
             shrinkWrap: true,
             scrollDirection: Axis.horizontal,

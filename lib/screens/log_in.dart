@@ -98,7 +98,8 @@ class Login extends StatelessWidget {
                                   if (_formkey.currentState!.validate()) {
                                     context.read<LoginCubit>().login(
                                       email: 'es@sdfgdf',
-                                      password: 'asdfgdfg',);
+                                      password: 'asdfgdfg',
+                                    );
                                     Navigator.push(
                                         context,
                                         MaterialPageRoute(

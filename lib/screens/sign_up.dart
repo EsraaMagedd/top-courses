@@ -69,9 +69,12 @@ class SignUp extends StatelessWidget {
                             vertical: 10, horizontal: 20),
                         child: TextFormField(
                           onChanged: (value) => _email = value,
-                          validator: (value) => value!.isEmpty
-                              ? 'Enter a Valid Email'
+                          validator: (value) => value!.contains('@gmail.com')
+                              ? 'Email must contain @gmail.com'
                               : null,
+
+
+
                           decoration: InputDecoration(
                               suffixIcon: Icon(Icons.email_outlined),
                               prefixIcon: Icon(Icons.email_outlined),
