@@ -55,11 +55,9 @@ class _MyApp extends State<MyApp> {
         ),
       ],
       child: MaterialApp(
-
         title: 'Top Courses',
         debugShowCheckedModeBanner: false,
-        home: ProfilePage(),
-
+        home: SplashScreen(),
       ),
     );
   }

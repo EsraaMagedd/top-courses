@@ -82,6 +82,31 @@ class AllCategory extends StatelessWidget {
           AllCategoryCourses(selected_index),
         ],
       ),
+      bottomNavigationBar: CurvedNavigationBar(
+        height: 50,
+        color: Colors.grey.shade50,
+        backgroundColor: const Color(0xff046edb).withOpacity(.2),
+        items: const [
+          Icon(
+            Icons.home,
+            size: 30,
+            color: Color(0xff0497f5),
+          ),
+          Icon(
+            Icons.person,
+            size: 30,
+            color: Color(0xff0497f5),
+          ),
+          Icon(
+            Icons.bookmark_outline_outlined,
+            size: 30,
+            color: Color(0xff0497f5),
+          ),
+
+        ],
+
+
+      ),
     );
   }
 }

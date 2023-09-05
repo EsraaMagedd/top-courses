@@ -60,11 +60,12 @@ class _EditProfilePageState extends State<EditProfilePage> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             GestureDetector(
-              onTap: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(builder: (context) => EditProfilePage()),
-                );
-              },
+              onTap: () async {
+                image = await picker.pickImage(source: ImageSource.gallery);
+                setState(() {
+                  user['prof'] = image!.path;
+                });
+                },
               child: SizedBox(
                 width: double.infinity,
                 height: 200,

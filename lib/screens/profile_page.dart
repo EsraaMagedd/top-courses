@@ -27,6 +27,7 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> {
+
   void initState() {
     user = Hive.box("user").get(loggedUser);
     //print(user.toString());
@@ -156,31 +157,9 @@ class _ProfilePageState extends State<ProfilePage> {
           ],
         ),
       ),
-      /*   bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Colors.blue.shade50,
-        items: [
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.home_filled,
-              color: Color(0xff0497f5),
-            ),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person_sharp),
-            label: 'Profile',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.bookmark_outline_outlined),
-            label: 'Saved Courses',
-          ),
-        ],
-        currentIndex: 0,
-        onTap: (int index) {
-          // Do something when a tab is tapped.
-        },
-      ),*/
+
       bottomNavigationBar: CurvedNavigationBar(
+        height: 50,
         color: Colors.blue.shade50,
         backgroundColor: const Color(0xff046edb).withOpacity(.2),
         items: const [
@@ -200,15 +179,14 @@ class _ProfilePageState extends State<ProfilePage> {
             color: Color(0xff0497f5),
           ),
 
-          /* Icon(
-            Icons.menu,
-            size: 30,
-            color: Color(0xff046edb),
-          ),*/
         ],
         onTap: (index) {
-          setState(() {});
-        },
+          setState(() {
+            index=2;
+          });
+          },
+
+
       ),
     );
   }
@@ -333,3 +311,8 @@ class _ProfilePageState extends State<ProfilePage> {
     launch(loggedUser);
   }
 }
+List _screens = [
+  Home(),
+  ProfilePage(),
+  Saved(),
+];

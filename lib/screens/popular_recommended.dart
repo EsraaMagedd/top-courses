@@ -15,6 +15,9 @@ class _PopularRecommendedsState extends State<PopularRecommended> {
         children: [
           SizedBox(height: 10,),
           // Popular Courses
+          ListTile(
+            leading: Text('Popular Courses',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 18),),
+          ),
           Flexible(child:
           ListView.builder(
             shrinkWrap: true,
@@ -30,9 +33,7 @@ class _PopularRecommendedsState extends State<PopularRecommended> {
             },
           ),
           ),
-          ListTile(
-            leading: Text('Popular Courses',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 18),),
-          ),
+
           // Recommended Courses
           ListTile(
             leading: Text('Recommended Courses',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 18),),
