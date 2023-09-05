@@ -1,21 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:cupertino_icons/cupertino_icons.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:top_courses/cubit/home_cubit.dart';
+import 'package:top_courses/cubit/home_cubit.dart';
 import 'package:top_courses/screens/popular_recommended.dart';
 
+import '../cubit/home_cubit.dart';
+import '../cubit/home_cubit.dart';
 import 'all_category_courses.dart';
 import 'category_courses.dart';
 
-int _selectedTabIndex = 0;
 
-class Home extends StatefulWidget {
-  @override
-  _Home createState() => _Home();
-}
-
-class _Home extends State<Home> {
+class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final cubit = context.read<HomeCubit>();
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
@@ -38,131 +38,138 @@ class _Home extends State<Home> {
             ),
           ],
         ),
-        body: Column(
-          children: [
-            Container(
-              height: 200,
-              child: ClipRRect(
-                borderRadius: BorderRadius.only(
-                  bottomLeft: Radius.circular(20),
-                  bottomRight: Radius.circular(20),
-                ),
-                child: Container(
+        body: BlocBuilder<HomeCubit, int>(
+          builder: (context, selectedIndex) {
+            return Column(
+              children: [
+                Container(
                   height: 200,
-                  width: double.infinity,
-                  color: Color(0xff046edb),
-                  child: Padding(
-                    padding: EdgeInsets.all(20),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.only(
+                      bottomLeft: Radius.circular(20),
+                      bottomRight: Radius.circular(20),
+                    ),
+                    child: Container(
+                      height: 200,
+                      width: double.infinity,
+                      color: Color(0xff046edb),
+                      child: Padding(
+                        padding: EdgeInsets.all(20),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "Find a course you \n"
+                                  "want to learn",
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 30,
+                                  color: Colors.white),
+                            ),
+                            SizedBox(
+                              height: 30,
+                            ),
+                            Container(
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(15),
+                                color: Colors.white,
+                                border: Border.all(color: Colors.grey),
+                              ),
+                              child: TextField(
+                                decoration: InputDecoration(
+                                  hintText: 'Search',
+                                  prefixIcon: Icon(Icons.search),
+                                ),
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                Container(
+                  height: 70,
+                  child: Expanded(
                     child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
-                          "Find a course you \n"
-                          "want to learn",
-                          style: TextStyle(
+                        Padding(
+                          padding: const EdgeInsets.all(2.0),
+                          child: Text(
+                            'Categories',
+                            style: TextStyle(
                               fontWeight: FontWeight.bold,
-                              fontSize: 30,
-                              color: Colors.white),
+                              fontSize: 20,
+                              color: Colors.black87,
+                            ),
+                            textDirection: TextDirection.ltr,
+                            textAlign: TextAlign.start,
+                          ),
                         ),
                         SizedBox(
-                          height: 30,
+                          height: 15,
                         ),
-                        Container(
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(15),
-                            color: Colors.white,
-                            border: Border.all(color: Colors.grey),
+                        //HorizontalTabs(),
+                        Expanded(
+                          child: ListView.builder(
+                            shrinkWrap: true,
+                            scrollDirection: Axis.horizontal,
+                            itemCount: _tabs.length,
+                            itemBuilder: (ctx, index) {
+                              return GestureDetector(
+                                onTap: () {
+                                  cubit.updateSelectedIndex(index);
+                                },
+                                child: Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                      vertical: 0, horizontal: 6),
+                                  child: Container(
+                                    alignment: Alignment.center,
+                                    decoration: BoxDecoration(
+                                      border: Border.all(
+                                        color: Colors.grey.shade300,
+                                      ),
+                                      borderRadius: BorderRadius.circular(15),
+                                      color: selectedIndex == index
+                                          ? Color(0xff046edb)
+                                          : Colors.transparent,
+                                    ),
+                                    child: Text(
+                                      _tabs[index],
+                                      style: TextStyle(
+                                        color: selectedIndex == index
+                                            ? Colors.white
+                                            : Color(0xff046edb),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              );
+                            },
                           ),
-                          child: TextField(
-                            decoration: InputDecoration(
-                              hintText: 'Search',
-                              prefixIcon: Icon(Icons.search),
-                            ),
-                          ),
-                        )
+                        ),
                       ],
                     ),
                   ),
                 ),
-              ),
-            ),
-            SizedBox(
-              height: 10,
-            ),
-            Container(
-              height: 70,
-              child: Expanded(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.all(2.0),
-                      child: Text(
-                        'Categories',
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 20,
-                            color: Colors.black87,),
-                        textDirection: TextDirection.ltr,
-                        textAlign: TextAlign.start,
-                      ),
-                    ),
-                    SizedBox(
-                      height: 15,
-                    ),
-                    //HorizontalTabs(),
-                    Expanded(
-                      child: ListView.builder(
-                        shrinkWrap: true,
-                        scrollDirection: Axis.horizontal,
-                        itemCount: _tabs.length,
-                        itemBuilder: (ctx, index) {
-                          return GestureDetector(
-                            onTap: () {
-                              setState(() {
-                                _selectedTabIndex = index;
-                              });
-                            },
-                            child: Padding(
-                              padding: const EdgeInsets.symmetric(
-                                  vertical: 0, horizontal: 6),
-                              child: Container(
-                                alignment: Alignment.center,
-                                decoration: BoxDecoration(
-                                  border:
-                                      Border.all(color: Colors.grey.shade300,),
-                                  borderRadius: BorderRadius.circular(15),
-                                  color: _selectedTabIndex == index
-                                      ? Color(0xff046edb)
-                                      : Colors.transparent,
-                                ),
-                                child: Text(
-                                  _tabs[index],
-                                  style: TextStyle(
-                                    color: _selectedTabIndex == index
-                                        ? Colors.white
-                                        : Color(0xff046edb),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          );
-                        },
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-            displaySelectedWidget(_selectedTabIndex),
-          ],
+                displaySelectedWidget(selectedIndex),
+              ],
+            );
+          },
         ),
         bottomNavigationBar: BottomNavigationBar(
           items: [
             BottomNavigationBarItem(
-              icon: Icon(Icons.home_filled, color: Color(0xff0497f5),),
+              icon: Icon(
+                Icons.home_filled,
+                color: Color(0xff0497f5),
+              ),
               label: 'Home',
             ),
             BottomNavigationBarItem(
@@ -176,8 +183,6 @@ class _Home extends State<Home> {
           ],
           currentIndex: 0,
           onTap: (int index) {
-
-
             // Do something when a tab is tapped.
           },
         ),
@@ -185,7 +190,6 @@ class _Home extends State<Home> {
     );
   }
 }
-
 
 Widget displaySelectedWidget(int index) {
   switch (index) {
@@ -200,7 +204,8 @@ Widget displaySelectedWidget(int index) {
     case 4:
       return CategoryCourses(3);
     default:
-      return CategoryCourses(0); // Alternatively, return a default widget if index is out of range.
+      return CategoryCourses(
+          0); // Alternatively, return a default widget if index is out of range.
   }
 }
 
@@ -236,10 +241,9 @@ class Popular extends StatelessWidget {
               ),
             ),
           ),
-
           Padding(
             padding:
-                const EdgeInsets.only(left: 0, right: 8, top: 8, bottom: 8),
+            const EdgeInsets.only(left: 0, right: 8, top: 8, bottom: 8),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -309,7 +313,6 @@ class Recommended extends StatelessWidget {
               ),
             ),
           ),
-
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Expanded(
@@ -352,7 +355,13 @@ class Recommended extends StatelessWidget {
   }
 }
 
-List<String> _tabs = [' All ', ' Technologies ',' Science ',  ' Languages ', ' Marketing ',];
+List<String> _tabs = [
+  ' All ',
+  ' Technologies ',
+  ' Science ',
+  ' Languages ',
+  ' Marketing ',
+];
 
 List<Popular> popularCourses = [
   const Popular(
@@ -381,7 +390,6 @@ List<Popular> popularCourses = [
   ),
 ];
 List<Recommended> RecommendedCourses = [
-
   const Recommended(
     photo: 'assets/language/english.jpg',
     title: 'English',
@@ -407,6 +415,3 @@ List<Recommended> RecommendedCourses = [
     hours: 40,
   ),
 ];
-
-
-

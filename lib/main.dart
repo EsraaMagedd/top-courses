@@ -7,18 +7,25 @@ import 'package:top_courses/screens/all_category_screen.dart';
 import 'package:top_courses/screens/single_course.dart';
 import 'package:top_courses/screens/splash.dart';
 import 'package:top_courses/screens/home.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'cubit/home_cubit.dart';
 
 void main() {
   runApp(MyApp());
 }
+
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Top Courses',
-      home: ProfilePage(),
-      debugShowCheckedModeBanner: false,
+    return BlocProvider(
+      create: (context) => HomeCubit(),
+      child: MaterialApp(
+        title: 'Top Courses',
+        home: Home(),
+        debugShowCheckedModeBanner: false,
+      ),
     );
   }
 }
