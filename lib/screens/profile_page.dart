@@ -1,9 +1,11 @@
 
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+import 'package:top_courses/screens/saved.dart';
 import 'package:top_courses/widgets/contact_widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:top_courses/screens/user.dart';
+import 'package:top_courses/screens/home.dart';
 import 'package:top_courses/screens/edit_profile_page.dart';
 import 'package:top_courses/screens/user_preferences.dart';
 import 'package:top_courses/widgets/appbar_widget.dart';
@@ -21,6 +23,7 @@ class ProfilePage extends StatefulWidget {
 class _ProfilePageState extends State<ProfilePage> {
   int _currentIndex = 0;
 
+  int _index = 0;
   void _onItemTapped(int index) {
     setState(() {
       _currentIndex = index;
@@ -62,34 +65,6 @@ class _ProfilePageState extends State<ProfilePage> {
           buildAbout(user),
         ],
       ),
-
-      bottomNavigationBar: CurvedNavigationBar(
-          color: Colors.white,
-          backgroundColor: Colors.blue.shade50.withOpacity(.2),
-          items: const [
-            Icon(
-              Icons.home,
-              size: 30,
-              color: Color(0xff0497f5),
-            ),
-            Icon(
-              Icons.person,
-              size: 30,
-              color: Color(0xff0497f5),
-            ),
-            Icon(
-              Icons.bookmark_outline_outlined,
-              size: 30,
-              color: Color(0xff0497f5),
-            ),
-          ],
-          onTap: (index) {
-            setState(() {
-
-
-            });
-          },
-            ),
     );
   }
   Widget buildName(User user) => Column(

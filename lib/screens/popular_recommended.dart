@@ -33,7 +33,6 @@ class _PopularRecommendedsState extends State<PopularRecommended> {
             },
           ),
           ),
-
           // Recommended Courses
           ListTile(
             leading: Text('Recommended Courses',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 18),),
