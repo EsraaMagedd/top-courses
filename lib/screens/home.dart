@@ -21,7 +21,7 @@ class _Home extends State<Home> {
         appBar: AppBar(
           elevation: 0,
           shadowColor: Colors.transparent,
-          backgroundColor: Colors.blue.shade900,
+          backgroundColor: Color(0xff046edb),
           title: Text('Hi, Learner'),
           actions: [
             IconButton(
@@ -50,7 +50,7 @@ class _Home extends State<Home> {
                 child: Container(
                   height: 200,
                   width: double.infinity,
-                  color: Colors.blue.shade900,
+                  color: Color(0xff046edb),
                   child: Padding(
                     padding: EdgeInsets.all(20),
                     child: Column(
@@ -100,11 +100,11 @@ class _Home extends State<Home> {
                     Padding(
                       padding: const EdgeInsets.all(2.0),
                       child: Text(
-                        '   Categories',
+                        'Categories',
                         style: TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 20,
-                            color: Colors.blue.shade900),
+                            color: Colors.black87,),
                         textDirection: TextDirection.ltr,
                         textAlign: TextAlign.start,
                       ),
@@ -132,10 +132,10 @@ class _Home extends State<Home> {
                                 alignment: Alignment.center,
                                 decoration: BoxDecoration(
                                   border:
-                                      Border.all(color: Colors.blue.shade900),
+                                      Border.all(color: Colors.grey.shade300,),
                                   borderRadius: BorderRadius.circular(15),
                                   color: _selectedTabIndex == index
-                                      ? Colors.blue.shade900
+                                      ? Color(0xff046edb)
                                       : Colors.transparent,
                                 ),
                                 child: Text(
@@ -143,7 +143,7 @@ class _Home extends State<Home> {
                                   style: TextStyle(
                                     color: _selectedTabIndex == index
                                         ? Colors.white
-                                        : Colors.blue.shade900,
+                                        : Color(0xff046edb),
                                   ),
                                 ),
                               ),
@@ -162,7 +162,7 @@ class _Home extends State<Home> {
         bottomNavigationBar: BottomNavigationBar(
           items: [
             BottomNavigationBarItem(
-              icon: Icon(Icons.home_filled),
+              icon: Icon(Icons.home_filled, color: Color(0xff0497f5),),
               label: 'Home',
             ),
             BottomNavigationBarItem(
@@ -176,6 +176,8 @@ class _Home extends State<Home> {
           ],
           currentIndex: 0,
           onTap: (int index) {
+
+
             // Do something when a tab is tapped.
           },
         ),

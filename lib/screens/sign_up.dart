@@ -12,7 +12,7 @@ class SignUp extends StatelessWidget {
     String _password;
     return SafeArea(
         child: Scaffold(
-          backgroundColor: Colors.blue.shade900,
+          backgroundColor: Color(0xff046edb),
           body: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -46,7 +46,7 @@ class SignUp extends StatelessWidget {
                           style: TextStyle(
                               fontSize: 30.0,
                               fontWeight: FontWeight.w700,
-                              color: Colors.blue.shade900),
+                            color: Color(0xff046edb),),
                         ),
                         SizedBox(height: 20,),
                         Padding(
@@ -122,7 +122,7 @@ class SignUp extends StatelessWidget {
                           child: Container(
                             width: double.infinity,
                             decoration: BoxDecoration(
-                                color: Colors.blue.shade900,
+                                color: Color(0xff046edb),
                                 borderRadius: BorderRadius.circular(50.0)),
 
                             child: MaterialButton(

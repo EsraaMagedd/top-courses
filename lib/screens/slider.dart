@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:liquid_swipe/liquid_swipe.dart';
 import 'package:lottie/lottie.dart';
@@ -14,9 +13,9 @@ class slider extends StatefulWidget {
 }
 
 class _sliderState extends State<slider> {
-  final controller = LiquidController();
-  PageController _controller = PageController();
-  int currentPage = 0;
+  final _controller = LiquidController();
+
+  int currentPage = 1;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,76 +24,56 @@ class _sliderState extends State<slider> {
         children: [
           LiquidSwipe(
               enableLoop: false,
-              liquidController: controller,
+              liquidController: _controller,
               onPageChangeCallback: (index) => setState(() {
-                currentPage = index;
-              }),
+                    currentPage = index;
+                  }),
               pages: [
                 buildPage(
-                    controller: _controller,
-                    Color(0xfff9ece3)!,
+                    Color(0xffe5f1f6)!,
                     [
                       'welcome to',
                       'Top ',
                       'Courses',
-                      'help you explore courses with different categories...',
+                      'will help you to explore courses with different categories such as Technologies, Sciences,'
+                          'Marketing, and Languages',
                     ],
                     'assets/images/online.json'),
                 buildPage(
-                    controller: _controller,
+
                     Colors.grey[200]!,
                     [
                       '',
                       'Top',
                       'Courses ',
-                      'You will be able to search courses and get all needed details'
+                      'will help you to search courses and get all needed details'
+                          'in addition to enrolling in courses and tracking your progress.'
                     ],
                     'assets/images/business.json'),
                 buildPage(
-                    controller: _controller,
+
+
                     Color(0xffdcf5ff)!,
                     [
                       '',
                       'Top',
                       'Courses ',
-                      'Ability to save your courses and contact with providers with special offers'
+                      'will help you to save your courses and contact '
+                          'with instructors , take assessments to measure your'
+                          'learning, and earn certificates of completion for courses. '
                     ],
                     'assets/images/marketing.json'),
-              ]),
-          Positioned(
-            bottom: 100,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(right: 190),
-                  child: SmoothPageIndicator(
-                      controller: _controller,
-                      count: 3,
-                      effect: CustomizableEffect(
-                          dotDecoration: DotDecoration(
-                              height: 5,
-                              width: 30,
-                              color: Colors.grey,
-                              borderRadius: BorderRadius.circular(2)),
-                          activeDotDecoration: DotDecoration(
-                              height: 5,
-                              width: 50,
-                              color: Color(0xff4ac5fd),
-                              borderRadius: BorderRadius.circular(2)))),
-                ),
-              ],
-            ),
-          )
+              ]
+          ),
+
         ],
       ),
     );
   }
 
   buildPage(Color color, List<String> texts, String animationJson,
-      {required PageController controller}) {
+      ){
     controller:
-    _controller;
     return Container(
       color: color,
       height: MediaQuery.of(context).size.height,
@@ -105,41 +84,43 @@ class _sliderState extends State<slider> {
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            SizedBox(height: 50,),
             Lottie.asset(
               animationJson,
               width: 450,
               height: 400,
               fit: BoxFit.fill,
             ),
+            SizedBox(height: 30,),
             RichText(
                 text: TextSpan(
-                  text: texts[0],
-                  style: TextStyle(
-                    fontSize: 30,
-                    color: Colors.blueGrey[800],
-                    fontWeight: FontWeight.bold,
-                  ),
-                )),
+              text: texts[0],
+              style: TextStyle(
+                fontSize: 40,
+                color: Colors.blueGrey[800],
+                fontWeight: FontWeight.bold,
+              ),
+            )),
             Row(
               children: [
                 RichText(
                     text: TextSpan(
-                      text: texts[1],
-                      style: TextStyle(
-                        fontSize: 25,
-                        color: Color(0xff0497f5),
-                        fontWeight: FontWeight.bold,
-                      ),
-                    )),
+                  text: texts[1],
+                  style: TextStyle(
+                    fontSize: 35,
+                    color: Color(0xff0497f5),
+                    fontWeight: FontWeight.bold,
+                  ),
+                )),
                 RichText(
                     text: TextSpan(
-                      text: texts[2],
-                      style: TextStyle(
-                        fontSize: 20,
-                        color: Color(0xff4ac5fd),
-                        //   fontWeight: FontWeight.bold,
-                      ),
-                    )),
+                  text: texts[2],
+                  style: TextStyle(
+                    fontSize: 25,
+                    color: Color(0xff4ac5fd),
+                    //   fontWeight: FontWeight.bold,
+                  ),
+                )),
               ],
             ),
             SizedBox(
@@ -147,13 +128,13 @@ class _sliderState extends State<slider> {
             ),
             RichText(
                 text: TextSpan(
-                  text: texts[3],
-                  style: TextStyle(
-                    fontSize: 16,
-                    color: Colors.black54,
-                  ),
-                )),
-            SizedBox(height: 50),
+              text: texts[3],
+              style: TextStyle(
+                fontSize: 18,
+                color: Colors.black54,
+              ),
+            )),
+            SizedBox(height: 130),
             InkWell(
               onTap: () {
                 Navigator.push(context,

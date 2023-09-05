@@ -36,7 +36,7 @@ class CategoryCourses extends StatelessWidget {
                 onPressed: () {
                   Navigator.push(context,  MaterialPageRoute(builder: (context) => AllCategory(selected_index)),);
                 },
-                child: Text('View All',style: TextStyle(color: Colors.blue.shade900),),
+                child: Text('View All',style: TextStyle(color: Color(0xff046edb)),),
               ),
 
             ),

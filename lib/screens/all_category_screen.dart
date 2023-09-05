@@ -19,7 +19,7 @@ class AllCategory extends StatelessWidget {
           toolbarHeight: 70,
           elevation: 0,
           shadowColor: Colors.transparent,
-          backgroundColor: Colors.blue.shade900,
+          backgroundColor: Color(0xff046edb),
           leading:BackButton(
           color: Colors.white,
           onPressed: (){
@@ -65,7 +65,7 @@ class AllCategory extends StatelessWidget {
                 onPressed: () {
                   // Do something when the button is pressed.
                 },
-                child: Text('Filter',style: TextStyle(color: Colors.blue.shade900),),
+                child: Text('Filter',style: TextStyle(color: Color(0xff046edb)),),
                 // Row(
                 //   children: [
                 //     Icon(Icons.filter_list,color: Colors.blue.shade900,),

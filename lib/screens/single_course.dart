@@ -20,11 +20,12 @@ class SingleCourse extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+
         appBar: AppBar(
           toolbarHeight: 70,
           elevation: 0,
           shadowColor: Colors.transparent,
-          backgroundColor: Colors.blue.shade900,
+          backgroundColor: Color(0xff046edb),
           leading: BackButton(
             color: Colors.white,
             onPressed: () {
@@ -39,9 +40,11 @@ class SingleCourse extends StatelessWidget {
         ),
         body: Column(
           mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Image.asset(AllCourses[selected_index][index].photo),
+            Container(
+                height: 300,
+                child: Image.asset(AllCourses[selected_index][index].photo)),
             const SizedBox(
               height: 10,
             ),
@@ -163,7 +166,7 @@ class SingleCourse extends StatelessWidget {
                     ),
                   ),
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.blue.shade900,
+                    backgroundColor: Color(0xff046edb),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(30),
                     ),

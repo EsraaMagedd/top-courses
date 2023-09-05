@@ -20,7 +20,7 @@ class Start extends StatelessWidget {
               style: TextStyle(
                   fontSize: 40,
                   fontWeight: FontWeight.bold,
-                  color: Colors.blue.shade900),
+                color: Color(0xff046edb),),
             ),
             Spacer(),
             Padding(
@@ -32,7 +32,8 @@ class Start extends StatelessWidget {
               height: 300,
               width: 420,
               decoration: BoxDecoration(
-                color: Colors.blue.shade900,
+                color: Color(0xff046edb),
+
                 borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(20),
                   topRight: Radius.circular(20),
