@@ -30,37 +30,35 @@ class _sliderState extends State<slider> {
                   }),
               pages: [
                 buildPage(
-                    Color(0xffe5f1f6)!,
+                    Color(0xff046edb)!,
                     [
                       'welcome to',
                       'Top ',
                       'Courses',
-                      'will help you to explore courses with different categories such as Technologies, Sciences,'
+                      'We will help you to explore courses with different categories such as Technologies, Sciences,'
                           'Marketing, and Languages',
                     ],
                     'assets/images/online.json'),
                 buildPage(
-
-                    Colors.grey[200]!,
+                    Color(0xff0497f5),
                     [
                       '',
                       'Top',
                       'Courses ',
-                      'will help you to search courses and get all needed details'
+                      'We will help you to search courses and get all needed details'
                           'in addition to enrolling in courses and tracking your progress.'
                     ],
                     'assets/images/business.json'),
                 buildPage(
 
-
-                    Color(0xffdcf5ff)!,
+                    Color(0xff63ACFA)!,
                     [
                       '',
                       'Top',
                       'Courses ',
-                      'will help you to save your courses and contact '
-                          'with instructors , take assessments to measure your'
-                          'learning, and earn certificates of completion for courses. '
+                      'We will help you to save your courses and contact '
+                          'with instructors , take assessments to measure your '
+                          'learning. '
                     ],
                     'assets/images/marketing.json'),
               ]
@@ -97,7 +95,7 @@ class _sliderState extends State<slider> {
               text: texts[0],
               style: TextStyle(
                 fontSize: 40,
-                color: Colors.blueGrey[800],
+                color: Colors.white,
                 fontWeight: FontWeight.bold,
               ),
             )),
@@ -108,7 +106,7 @@ class _sliderState extends State<slider> {
                   text: texts[1],
                   style: TextStyle(
                     fontSize: 35,
-                    color: Color(0xff0497f5),
+                    color: Colors.white,
                     fontWeight: FontWeight.bold,
                   ),
                 )),
@@ -116,8 +114,8 @@ class _sliderState extends State<slider> {
                     text: TextSpan(
                   text: texts[2],
                   style: TextStyle(
-                    fontSize: 25,
-                    color: Color(0xff4ac5fd),
+                    fontSize: 23,
+                    color: Colors.white,
                     //   fontWeight: FontWeight.bold,
                   ),
                 )),
@@ -131,7 +129,7 @@ class _sliderState extends State<slider> {
               text: texts[3],
               style: TextStyle(
                 fontSize: 18,
-                color: Colors.black54,
+                color: Colors.white,
               ),
             )),
             SizedBox(height: 130),
@@ -146,7 +144,7 @@ class _sliderState extends State<slider> {
                 width: 230,
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(18),
-                    color: Color(0xff0497f5)),
+                    color: Colors.white),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -154,7 +152,7 @@ class _sliderState extends State<slider> {
                       "Get Started",
                       style: TextStyle(
                         fontSize: 20,
-                        color: Colors.white,
+                        color: Color(0xff046edb),
                         fontWeight: FontWeight.bold,
                       ),
                     ),
@@ -163,7 +161,7 @@ class _sliderState extends State<slider> {
                     ),
                     Icon(
                       Icons.arrow_forward,
-                      color: Colors.white,
+                      color: Color(0xff046edb),
                     )
                   ],
                 ),

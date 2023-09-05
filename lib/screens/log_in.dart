@@ -11,13 +11,13 @@ class Login extends StatelessWidget {
     String _email;
     String _password;
     return SafeArea(
-      child: Material(
-        child: Scaffold(
-          backgroundColor: Color(0xff046edb),
-          body: Column(
+      child: Scaffold(
+        backgroundColor: Color(0xff046edb),
+        body: SingleChildScrollView(
+          child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              SizedBox(height: 80,),
+              SizedBox(height: 98,),
               Text(
                 'Let\'s learn!',
                 style: TextStyle(
@@ -25,7 +25,7 @@ class Login extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                     color: Colors.white),
               ),
-              SizedBox(height: 80,),
+              SizedBox(height: 98,),
               Container(
                 height: 600,
                 decoration: BoxDecoration(

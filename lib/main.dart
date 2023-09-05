@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
       create: (context) => HomeCubit(),
       child: MaterialApp(
         title: 'Top Courses',
-        home: Home(),
+        home: SplashScreen(),
         debugShowCheckedModeBanner: false,
       ),
     );

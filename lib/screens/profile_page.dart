@@ -1,4 +1,5 @@
 
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:top_courses/widgets/contact_widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -18,6 +19,13 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> {
+  int _currentIndex = 0;
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _currentIndex = index;
+    });
+  }
   @override
   Widget build(BuildContext context) {
     final user = UserPreferences.myUser;
@@ -54,27 +62,34 @@ class _ProfilePageState extends State<ProfilePage> {
           buildAbout(user),
         ],
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Colors.blue.shade50,
-        items: [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home_filled, color: Color(0xff0497f5),),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person_sharp),
-            label: 'Profile',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.bookmark_outline_outlined),
-            label: 'Saved Courses',
-          ),
-        ],
-        currentIndex: 0,
-        onTap: (int index) {
-          // Do something when a tab is tapped.
-        },
-      ),
+
+      bottomNavigationBar: CurvedNavigationBar(
+          color: Colors.white,
+          backgroundColor: Colors.blue.shade50.withOpacity(.2),
+          items: const [
+            Icon(
+              Icons.home,
+              size: 30,
+              color: Color(0xff0497f5),
+            ),
+            Icon(
+              Icons.person,
+              size: 30,
+              color: Color(0xff0497f5),
+            ),
+            Icon(
+              Icons.bookmark_outline_outlined,
+              size: 30,
+              color: Color(0xff0497f5),
+            ),
+          ],
+          onTap: (index) {
+            setState(() {
+
+
+            });
+          },
+            ),
     );
   }
   Widget buildName(User user) => Column(
