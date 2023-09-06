@@ -70,13 +70,6 @@ class AllCategory extends StatelessWidget {
                 // Do something when the button is pressed.
               },
               child: Text('Filter',style: TextStyle(color: Color(0xff046edb)),),
-              // Row(
-              //   children: [
-              //     Icon(Icons.filter_list,color: Colors.blue.shade900,),
-              //     Text('Filter',style: TextStyle(color: Colors.blue.shade900),),
-              //
-              //   ],
-              // ),
             ),
           ),
           AllCategoryCourses(selected_index),
