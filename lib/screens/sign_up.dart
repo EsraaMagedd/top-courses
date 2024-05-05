@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:top_courses/screens/log_in.dart';
+import 'package:top_courses/screens/new/all.dart';
 
 import 'home.dart';
 
@@ -141,7 +142,7 @@ class SignUp extends StatelessWidget {
                                 Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                      builder: (context) => Home(),
+                                      builder: (context) => CoursesPage(),
                                     ));
                               }
                             }),

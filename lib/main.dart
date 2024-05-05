@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:top_courses/cubit/login_cubit.dart';
+import 'package:top_courses/screens/new/all.dart';
 import 'package:top_courses/screens/log_in.dart';
 import 'package:top_courses/screens/profile_page.dart';
 import 'package:top_courses/screens/saved.dart';

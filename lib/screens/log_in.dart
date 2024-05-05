@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:top_courses/cubit/login_cubit.dart';
+import 'package:top_courses/screens/new/all.dart';
 
 import 'sign_up.dart';
 import 'home.dart';
@@ -103,7 +104,7 @@ class Login extends StatelessWidget {
                                     Navigator.push(
                                         context,
                                         MaterialPageRoute(
-                                          builder: (context) => Home(),
+                                          builder: (context) => CoursesPage(),
                                         ));
                                   }
                                   ;

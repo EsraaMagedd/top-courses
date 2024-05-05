@@ -442,32 +442,3 @@ List<List<Courses>> AllCourses = [
 
   ],
 ];
-
-//   saveJob(BuildContext context, String imageAsset, String description) {
-//     var box = Hive.box('saved_jobs');
-//     box.put(imageAsset, description);
-//     ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-//       content: Row(
-//         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//         children: [
-//           const Text(
-//             "تم الحفظ",
-//             style: TextStyle(color: Colors.black54),
-//           ),
-//           IconButton(
-//             onPressed: () {
-//               box.delete(imageAsset);
-//             },
-//             icon: const Icon(
-//               Icons.undo,
-//               color: Colors.black54,
-//             ),
-//             iconSize: 20,
-//           ),
-//         ],
-//       ),
-//       duration: const Duration(seconds: 2),
-//       backgroundColor: Colors.white,
-//       dismissDirection: DismissDirection.horizontal,
-//     ));
-//   }
